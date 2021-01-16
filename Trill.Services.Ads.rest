@@ -1,0 +1,57 @@
+@url = http://localhost:5030
+@userId = cadd6df6-05e2-4587-b057-40428e9f366a
+@adId = 5c8102a6-001d-4528-8cab-3d08e0711d62
+
+###
+GET {{url}}
+
+###
+GET {{url}}/ads
+
+###
+GET {{url}}/ads/{{adId}}
+
+###
+POST {{url}}/ads
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "header": "My ad #1",
+  "content": "Lorem ipsum ad #1",
+  "tags": ["dotnet"],
+  "from": "2020-10-07",
+  "to": "2020-10-14"
+}
+
+###
+PUT {{url}}/ads/{{{adId}}/approve
+Content-Type: application/json
+
+{
+  "adId": "{{adId}}"
+}
+
+###
+PUT {{url}}/ads/{{{adId}}/reject
+Content-Type: application/json
+
+{
+  "adId": "{{adId}}"
+}
+
+###
+PUT {{url}}/ads/{{{adId}}/pay
+Content-Type: application/json
+
+{
+  "adId": "{{adId}}"
+}
+
+###
+PUT {{url}}/ads/{{{adId}}/publish
+Content-Type: application/json
+
+{
+  "adId": "{{adId}}"
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Trill.Services.Ads";
+
+package stories;
+
+service StoryService {
+  rpc SendStory(SendStoryCommand) returns (SendStoryResponse);
+}
+
+message SendStoryCommand {
+  string userId = 1;
+  string title = 2;
+  string text = 3;
+  string visibleFrom = 4;
+  string visibleTo = 5;
+  bool highlighted = 6;
+  repeated string tags = 7;
+}
+
+message SendStoryResponse {
+  int64 id = 1;
+}
